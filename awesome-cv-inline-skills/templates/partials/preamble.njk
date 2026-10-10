@@ -109,16 +109,15 @@
   \vspace{<<spacing.paragraphTopAdjust>>}
   \begingroup
   \setlength{\parindent}{0pt}
-  \setlength{\parskip}{0.35em}
+  \setlength{\parskip}{0.2em}
   \raggedright
 }{%
   \par
   \endgroup
-  \vspace{<<spacing.paragraphBottomSkip>>}
 }
 
 \renewcommand*{\cvskill}[2]{%
-  {\fontsize{<<fonts.contentTextSize>>}{1.3em}\selectfont\bodyfontlight\color{text}%
+  {\fontsize{<<fonts.contentTextSize>>}{1em}\selectfont\bodyfontlight\color{text}%
   \ifstrempty{#1}{}{{\bodyfont\bfseries\color{darktext}#1:}\ }#2\par}%
 }
 
