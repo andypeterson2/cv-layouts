@@ -17,22 +17,45 @@
 
 \renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
 
+% Interword spaces never shrink below their natural width, so a justified line
+% cannot squeeze them small enough for a text extractor to read as no space.
 <% if style.fontFamily == 'roboto' %>
 \setmainfont{Roboto}[
   UprightFont=*,
   ItalicFont=*-Italic,
   BoldFont=*-Bold,
   BoldItalicFont=*-BoldItalic,
-  FontFace={l}{n}{Font=*-Light},
-  FontFace={l}{it}{Font=*-LightItalic},
+  FontFace={l}{n}{Font=*-Light,WordSpace={1,1.6,0}},
+  FontFace={l}{it}{Font=*-LightItalic,WordSpace={1,1.6,0}},
+  WordSpace={1,1.6,0},
 ]
 \setsansfont{Roboto}[
   UprightFont=*,
   ItalicFont=*-Italic,
   BoldFont=*-Bold,
   BoldItalicFont=*-BoldItalic,
-  FontFace={l}{n}{Font=*-Light},
-  FontFace={l}{it}{Font=*-LightItalic},
+  FontFace={l}{n}{Font=*-Light,WordSpace={1,1.6,0}},
+  FontFace={l}{it}{Font=*-LightItalic,WordSpace={1,1.6,0}},
+  WordSpace={1,1.6,0},
+]
+<% else %>
+\setmainfont{Source Sans 3}[
+  UprightFont=*,
+  ItalicFont=* Italic,
+  BoldFont=* Bold,
+  BoldItalicFont=* Bold Italic,
+  FontFace={l}{n}{Font=* Light,WordSpace={1,1.6,0}},
+  FontFace={l}{it}{Font=* Light Italic,WordSpace={1,1.6,0}},
+  WordSpace={1,1.6,0},
+]
+\setsansfont{Source Sans 3}[
+  UprightFont=*,
+  ItalicFont=* Italic,
+  BoldFont=* Bold,
+  BoldItalicFont=* Bold Italic,
+  FontFace={l}{n}{Font=* Light,WordSpace={1,1.6,0}},
+  FontFace={l}{it}{Font=* Light Italic,WordSpace={1,1.6,0}},
+  WordSpace={1,1.6,0},
 ]
 <% endif %>
 % Text layer: extract the source characters, never split words, keep symbols visible
