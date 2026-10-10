@@ -1,0 +1,31 @@
+{
+  "id": "awesome-cv-inline-skills",
+  "name": "Awesome CV (inline skills)",
+  "version": "1.0.0",
+  "description": "Awesome CV with each skill group typeset as one full-width paragraph: a bold label, a colon, then the list, so a PDF parser reads every group as one run of text.",
+  "author": "andypeterson2",
+  "engine": "nunjucks",
+  "contextVersion": 1,
+  "kinds": [
+    "cv",
+    "resume",
+    "coverletter"
+  ],
+  "entry": {
+    "document": "templates/document.tex.njk",
+    "coverletter": "templates/coverletter.tex.njk"
+  },
+  "main": "{kind}.tex",
+  "classFiles": [
+    "class/FontAwesome6Brands-Regular-400.otf",
+    "class/FontAwesome6Free-Regular-400.otf",
+    "class/FontAwesome6Free-Solid-900.otf",
+    "class/accsupp.sty",
+    "class/awesome-cv.cls",
+    "class/fontawesome6-generic-helper.sty",
+    "class/fontawesome6-utex-helper.sty",
+    "class/fontawesome6.sty",
+    "class/tufontawesome6brands.fd",
+    "class/tufontawesome6free.fd"
+  ]
+}
