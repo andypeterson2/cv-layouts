@@ -76,6 +76,25 @@
 \renewcommand*{\sectionstyleface}[1]{{\fontsize{<<fonts.sectionTitleSize>>}{1em}\bodyfont\bfseries #1}}
 \renewcommand*{\subsectionstyle}[1]{{\fontsize{<<fonts.subsectionTitleSize>>}{1em}\bodyfont\scshape\textcolor{text}{#1}}}
 
+% Section heading ends on a strut so every heading has the same depth,
+% whatever descenders its title has.
+\renewcommand{\cvsection}[1]{%
+  \vspace{\acvSectionTopSkip}
+  \sectionstyle{#1}
+  \phantomsection
+  \color{sectiondivider}\vhrulefill{0.9pt}\strut
+}
+
+% Entries stack without list spacing: sectionContentTopSkip sits under the
+% heading, contentTopAdjust above every entry.
+\renewenvironment{cventries}{%
+  \par
+  \vspace{\acvSectionContentTopSkip}
+  \centering
+}{%
+  \par
+}
+
 % Entry box: each entry is its own top-aligned paragraph with no interline glue,
 % so contentTopAdjust alone sets the space above it.
 \renewcommand*{\cventry}[5]{%
