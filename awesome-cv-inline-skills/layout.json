@@ -1,7 +1,7 @@
 {
   "id": "awesome-cv-inline-skills",
   "name": "Awesome CV (inline skills)",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "Awesome CV with each skill group typeset as one full-width paragraph: a bold label, a colon, then the list, so a PDF parser reads every group as one run of text.",
   "author": "andypeterson2",
   "engine": "nunjucks",
@@ -17,6 +17,13 @@
   },
   "main": "{kind}.tex",
   "classFiles": [
+    "class/CVSans-Bold.otf",
+    "class/CVSans-BoldIt.otf",
+    "class/CVSans-It.otf",
+    "class/CVSans-Light.otf",
+    "class/CVSans-LightIt.otf",
+    "class/CVSans-OFL.txt",
+    "class/CVSans-Regular.otf",
     "class/FontAwesome6Brands-Regular-400.otf",
     "class/FontAwesome6Free-Regular-400.otf",
     "class/FontAwesome6Free-Solid-900.otf",

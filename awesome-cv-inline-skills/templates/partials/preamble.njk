@@ -39,29 +39,35 @@
   WordSpace={1,1.6,0},
 ]
 <% else %>
-\setmainfont{Source Sans 3}[
-  UprightFont=*,
-  ItalicFont=* Italic,
-  BoldFont=* Bold,
-  BoldItalicFont=* Bold Italic,
-  FontFace={l}{n}{Font=* Light,WordSpace={1,1.6,0}},
-  FontFace={l}{it}{Font=* Light Italic,WordSpace={1,1.6,0}},
+% CV Sans is Source Sans 3 with each space and hyphen glyph mapped to one
+% character only, so extractors read U+0020 and U+002D, not U+00A0 and U+2011.
+\setmainfont{CVSans}[
+  Path=./,
+  Extension=.otf,
+  UprightFont=*-Regular,
+  ItalicFont=*-It,
+  BoldFont=*-Bold,
+  BoldItalicFont=*-BoldIt,
+  FontFace={l}{n}{Font=*-Light,WordSpace={1,1.6,0}},
+  FontFace={l}{it}{Font=*-LightIt,WordSpace={1,1.6,0}},
   WordSpace={1,1.6,0},
 ]
-\setsansfont{Source Sans 3}[
-  UprightFont=*,
-  ItalicFont=* Italic,
-  BoldFont=* Bold,
-  BoldItalicFont=* Bold Italic,
-  FontFace={l}{n}{Font=* Light,WordSpace={1,1.6,0}},
-  FontFace={l}{it}{Font=* Light Italic,WordSpace={1,1.6,0}},
+\setsansfont{CVSans}[
+  Path=./,
+  Extension=.otf,
+  UprightFont=*-Regular,
+  ItalicFont=*-It,
+  BoldFont=*-Bold,
+  BoldItalicFont=*-BoldIt,
+  FontFace={l}{n}{Font=*-Light,WordSpace={1,1.6,0}},
+  FontFace={l}{it}{Font=*-LightIt,WordSpace={1,1.6,0}},
   WordSpace={1,1.6,0},
 ]
 <% endif %>
 % Interword space that also carries a zero-width space glyph, so extractors
 % that only trust real space characters still split the words.
 \newcommand*{\cvsp}{%
-  \ifnum\XeTeXcharglyph"0020>0 \makebox[0pt][l]{\scalebox{0.01}[1]{\XeTeXglyph\XeTeXcharglyph"0020\relax}}\fi\ }
+  \ifnum\XeTeXcharglyph"0020>0 \makebox[0pt][l]{\XeTeXglyph\XeTeXcharglyph"0020\relax}\fi\ }
 
 % Text layer: extract the source characters, never split words, keep symbols visible
 \XeTeXgenerateactualtext=1
