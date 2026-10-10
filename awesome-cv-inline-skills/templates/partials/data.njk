@@ -6,10 +6,10 @@
 <% endif %>
 \name{<<personal.firstName | tex>>}{<<personal.lastName | tex>>} % Legal
 <% if personal.position %>
-\position{<<personal.position | tex>>}
+\position{<<personal.position | tex | replace(" ", "\\cvsp ")>>}
 <% endif %>
 <% if personal.address %>
-\address{<<personal.address | tex>>}
+\address{<<personal.address | tex | replace(" ", "\\cvsp ")>>}
 <% endif %>
 <% if personal.dateofbirth %>
 \dateofbirth{<<personal.dateofbirth | tex>>}

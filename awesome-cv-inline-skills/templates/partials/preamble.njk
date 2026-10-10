@@ -58,6 +58,11 @@
   WordSpace={1,1.6,0},
 ]
 <% endif %>
+% Interword space that also carries a zero-width space glyph, so extractors
+% that only trust real space characters still split the words.
+\newcommand*{\cvsp}{%
+  \ifnum\XeTeXcharglyph"0020>0 \makebox[0pt][l]{\scalebox{0.01}[1]{\XeTeXglyph\XeTeXcharglyph"0020\relax}}\fi\ }
+
 % Text layer: extract the source characters, never split words, keep symbols visible
 \XeTeXgenerateactualtext=1
 \hyphenpenalty=10000
@@ -99,11 +104,14 @@
 \renewcommand*{\sectionstyleface}[1]{{\fontsize{<<fonts.sectionTitleSize>>}{1em}\bodyfont\bfseries #1}}
 \renewcommand*{\subsectionstyle}[1]{{\fontsize{<<fonts.subsectionTitleSize>>}{1em}\bodyfont\scshape\textcolor{text}{#1}}}
 
-% Section heading ends on a strut so every heading has the same depth,
-% whatever descenders its title has.
-\renewcommand{\cvsection}[1]{%
+% Section heading, given as its accented first three characters and the rest.
+% It ends on a strut so every heading has the same depth, whatever descenders
+% its title has.
+\newcommand{\cvsectionparts}[2]{%
   \vspace{\acvSectionTopSkip}
-  \sectionstyle{#1}
+  \ifthenelse{\boolean{acvSectionColorHighlight}}%
+    {\color{awesome}\sectionstyleface{#1\color{text}{#2}}}%
+    {\color{text}\sectionstyleface{#1#2}}%
   \phantomsection
   \color{sectiondivider}\vhrulefill{0.9pt}\strut
 }

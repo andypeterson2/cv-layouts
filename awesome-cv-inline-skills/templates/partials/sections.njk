@@ -5,20 +5,20 @@
    the body onto the next line. Without it the body typesets on the rule. #>
 
 <% macro cventries(s) %>
-\cvsection{<<s.title | tex>>}
+\cvsectionparts{<<s.title.slice(0, 3) | tex>>}{<<s.title.slice(3) | tex | replace(" ", "\\cvsp ")>>}
 
 \begin{cventries}
 <% for e in s.entries %>
   \cventry
-    {<<e.position | tex>>}
-    {<<e.organization | tex>>}
-    {<<e.location | tex>>}
-    {<<e.date | tex>>}
+    {<<e.position | tex | replace(" ", "\\cvsp ")>>}
+    {<<e.organization | tex | replace(" ", "\\cvsp ")>>}
+    {<<e.location | tex | replace(" ", "\\cvsp ")>>}
+    {<<e.date | tex | replace(" ", "\\cvsp ")>>}
 <% if e.items and e.items.length > 0 %>
     {
       \begin{cvitems}
 <% for item in e.items %>
-        \item {<<item | tex>>}
+        \item {<<item | tex | replace(" ", "\\cvsp ")>>}
 <% endfor %>
       \end{cvitems}
     }
@@ -30,39 +30,39 @@
 <% endmacro %>
 
 <% macro cvskills(s) %>
-\cvsection{<<s.title | tex>>}
+\cvsectionparts{<<s.title.slice(0, 3) | tex>>}{<<s.title.slice(3) | tex | replace(" ", "\\cvsp ")>>}
 
 \begin{cvskills}
 <% for e in s.entries %>
   \cvskill
-    {<<e.category | tex>>}
-    {<<e.skills | tex>>}
+    {<<e.category | tex | replace(" ", "\\cvsp ")>>}
+    {<<e.skills | tex | replace(" ", "\\cvsp ")>>}
 <% endfor %>
 \end{cvskills}
 <% endmacro %>
 
 <% macro cvhonors(s) %>
-\cvsection{<<s.title | tex>>}
+\cvsectionparts{<<s.title.slice(0, 3) | tex>>}{<<s.title.slice(3) | tex | replace(" ", "\\cvsp ")>>}
 
 \begin{cvhonors}
 <% for e in s.entries %>
   \cvhonor
-    {<<e.award | tex>>} % Name
-    {<<e.issuer | tex>>} % Issuer
-    {<<e.location | tex>>} % Credential ID
-    {<<e.date | tex>>} % Date(s)
+    {<<e.award | tex | replace(" ", "\\cvsp ")>>} % Name
+    {<<e.issuer | tex | replace(" ", "\\cvsp ")>>} % Issuer
+    {<<e.location | tex | replace(" ", "\\cvsp ")>>} % Credential ID
+    {<<e.date | tex | replace(" ", "\\cvsp ")>>} % Date(s)
 <% endfor %>
 \end{cvhonors}
 <% endmacro %>
 
 <% macro cvreferences(s) %>
-\cvsection{<<s.title | tex>>}
+\cvsectionparts{<<s.title.slice(0, 3) | tex>>}{<<s.title.slice(3) | tex | replace(" ", "\\cvsp ")>>}
 
 \begin{cvreferences}
 <% for e in s.entries %>
   \cvreference
-    {<<e.name | tex>>}
-    {<<e.relation | tex>>}
+    {<<e.name | tex | replace(" ", "\\cvsp ")>>}
+    {<<e.relation | tex | replace(" ", "\\cvsp ")>>}
     {<<e.phone | tex>>}
     {<<e.email | tex>>}
 <% endfor %>
@@ -70,11 +70,11 @@
 <% endmacro %>
 
 <% macro cvparagraph(s) %>
-\cvsection{<<s.title | tex>>}
+\cvsectionparts{<<s.title.slice(0, 3) | tex>>}{<<s.title.slice(3) | tex | replace(" ", "\\cvsp ")>>}
 
 \begin{cvparagraph}
 <% for t in s.texts %>
-<<t | tex>>
+<<t | tex | replace(" ", "\\cvsp ")>>
 <% if not loop.last %>
 
 <% endif %>
