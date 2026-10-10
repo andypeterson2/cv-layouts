@@ -1,7 +1,7 @@
 {
   "id": "awesome-cv-inline-skills",
   "name": "Awesome CV (inline skills)",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Awesome CV with each skill group typeset as one full-width paragraph: a bold label, a colon, then the list, so a PDF parser reads every group as one run of text.",
   "author": "andypeterson2",
   "engine": "nunjucks",
