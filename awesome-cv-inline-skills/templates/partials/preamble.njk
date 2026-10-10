@@ -76,12 +76,14 @@
 \renewcommand*{\sectionstyleface}[1]{{\fontsize{<<fonts.sectionTitleSize>>}{1em}\bodyfont\bfseries #1}}
 \renewcommand*{\subsectionstyle}[1]{{\fontsize{<<fonts.subsectionTitleSize>>}{1em}\bodyfont\scshape\textcolor{text}{#1}}}
 
-% Entry box: contentTopAdjust nudges each entry up to tighten vertical rhythm
+% Entry box: each entry is its own top-aligned paragraph with no interline glue,
+% so contentTopAdjust alone sets the space above it.
 \renewcommand*{\cventry}[5]{%
+  \par\nointerlineskip
   \vspace{<<spacing.contentTopAdjust>>}%
   \setlength\tabcolsep{0pt}%
   \setlength{\extrarowheight}{0pt}%
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+  \noindent\begin{tabular*}{\textwidth}[t]{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
     \ifempty{#2#3}
       {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
       {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
@@ -90,6 +92,7 @@
       {}
       {\multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}} \\}
   \end{tabular*}%
+  \par
 }
 
 \renewenvironment{cvitems}{%
