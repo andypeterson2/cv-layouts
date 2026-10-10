@@ -86,13 +86,14 @@
 }
 
 % Entries stack without list spacing: sectionContentTopSkip sits under the
-% heading, contentTopAdjust above every entry.
+% heading, contentTopAdjust above every entry, paragraphBottomSkip below the last.
 \renewenvironment{cventries}{%
   \par
   \vspace{\acvSectionContentTopSkip}
   \centering
 }{%
   \par
+  \vspace{<<spacing.paragraphBottomSkip>>}
 }
 
 % Entry box: each entry is its own top-aligned paragraph with no interline glue,
